@@ -65,7 +65,6 @@ public class Main {
         } else if (deliveryDistance > 100) {
             System.out.println("Свыше 100 км доставки нет");
         }
-
     }
 
 }
