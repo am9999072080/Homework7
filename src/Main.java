@@ -16,8 +16,9 @@ public class Main {
     public static void checkYear1(int year) {
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             System.out.println(year + " год является високосным");
+        } else {
+            System.out.println(year + " год не является високосным");
         }
-        System.out.println(year + " год не является високосным");
     }
 
     public static void task2() {
@@ -46,18 +47,25 @@ public class Main {
 
     public static void task3() {
         System.out.println("Задача-3");
-        CountDistance(100, 1);
+        calcDays(95);
     }
 
-    public static void CountDistance(int deliveryDistance, int deliveryDays) {
-        if (deliveryDistance > 20) {
-            deliveryDays++;
-        }
-        if (deliveryDistance > 60) {
-            deliveryDays++;
+    static void calcDays(int deliveryDistance) {
+        int deliveryDays = 1;
+        if (deliveryDistance < 20) {
             System.out.println("Для доставки потребуется дней:  " + deliveryDays);
-        } else {
+        }
+        deliveryDays++;
+        if (20 < deliveryDistance && deliveryDistance < 60) {
+            System.out.println("Для доставки потребуется дней:  " + deliveryDays);
+        }
+        deliveryDays++;
+        if (deliveryDistance > 60 && deliveryDistance < 100) {
+            System.out.println("Для доставки потребуется дней:  " + deliveryDays);
+        } else if (deliveryDistance > 100) {
             System.out.println("Свыше 100 км доставки нет");
         }
+
     }
+
 }
