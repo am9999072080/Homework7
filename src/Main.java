@@ -6,6 +6,7 @@ public class Main {
         task2();
         task3();
 
+
     }
 
     public static void task1() {
@@ -47,24 +48,22 @@ public class Main {
 
     public static void task3() {
         System.out.println("Задача-3");
-        calcDays(95);
-    }
-
-    static void calcDays(int deliveryDistance) {
-        int deliveryDays = 1;
-        if (deliveryDistance < 20) {
-            System.out.println("Для доставки потребуется дней:  " + deliveryDays);
-        }
-        deliveryDays++;
-        if (20 < deliveryDistance && deliveryDistance < 60) {
-            System.out.println("Для доставки потребуется дней:  " + deliveryDays);
-        }
-        deliveryDays++;
-        if (deliveryDistance > 60 && deliveryDistance < 100) {
-            System.out.println("Для доставки потребуется дней:  " + deliveryDays);
-        } else if (deliveryDistance > 100) {
+        int[] distance = {20, 60, 100};
+        int deliveryDistance = 95;
+        if (deliveryDistance >= 100) {
             System.out.println("Свыше 100 км доставки нет");
+        } else {
+            int sumDays = (calcDays(distance, deliveryDistance));
+            System.out.println("Для доставки потребуется дней:  " + sumDays);
         }
     }
 
+    private static int calcDays(int[] a, int b) {
+        int days = 1;
+        for (int i = 0; b > a[i]; i++) {
+            days++;
+        }
+        return days;
+    }
 }
+
